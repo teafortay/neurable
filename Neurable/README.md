@@ -56,3 +56,4 @@ So that I can prepare my session data to be uploaded to the backend.
 6. Please use the project README.md file to describe your solution.
 
 7. You can share the solution with us via GitHub - please invite <TODO: add GitHub handles>
+recruiting@neurable.com
