@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A3BE9B12BD58FA9000DB788 /* FocusDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BE9B02BD58FA9000DB788 /* FocusDataGenerator.swift */; };
+		4A3BE9B62BD5C8DE000DB788 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3BE9B52BD5C8DE000DB788 /* ContentViewModel.swift */; };
 		4A4CBFF92BD31C1E0021F5C7 /* NeurableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CBFF82BD31C1E0021F5C7 /* NeurableApp.swift */; };
 		4A4CBFFB2BD31C1E0021F5C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4CBFFA2BD31C1E0021F5C7 /* ContentView.swift */; };
 		4A4CBFFD2BD31C200021F5C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4CBFFC2BD31C200021F5C7 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		4A3BE9B02BD58FA9000DB788 /* FocusDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusDataGenerator.swift; sourceTree = "<group>"; };
+		4A3BE9B52BD5C8DE000DB788 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		4A4CBFF52BD31C1E0021F5C7 /* Neurable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neurable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4CBFF82BD31C1E0021F5C7 /* NeurableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeurableApp.swift; sourceTree = "<group>"; };
 		4A4CBFFA2BD31C1E0021F5C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				4A4CBFF82BD31C1E0021F5C7 /* NeurableApp.swift */,
 				4A4CC0062BD31D5E0021F5C7 /* README.md */,
 				4A4CBFFA2BD31C1E0021F5C7 /* ContentView.swift */,
+				4A3BE9B52BD5C8DE000DB788 /* ContentViewModel.swift */,
 				4A4CBFFC2BD31C200021F5C7 /* Assets.xcassets */,
 				4A4CC00F2BD31E210021F5C7 /* ProtobufValidator.swift */,
 				4A4CC00D2BD31DFB0021F5C7 /* session.pb.swift */,
@@ -163,6 +166,7 @@
 			files = (
 				4A3BE9B12BD58FA9000DB788 /* FocusDataGenerator.swift in Sources */,
 				4A4CBFFB2BD31C1E0021F5C7 /* ContentView.swift in Sources */,
+				4A3BE9B62BD5C8DE000DB788 /* ContentViewModel.swift in Sources */,
 				4A4CC0102BD31E210021F5C7 /* ProtobufValidator.swift in Sources */,
 				4A4CBFF92BD31C1E0021F5C7 /* NeurableApp.swift in Sources */,
 				4A4CC00E2BD31DFB0021F5C7 /* session.pb.swift in Sources */,
