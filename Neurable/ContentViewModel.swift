@@ -6,7 +6,15 @@
 //
 
 import Foundation
-@MainActor
+
 class ContentViewModel: ObservableObject {
-    @Published var isOn = false
+    @Published var isOn: Bool
+    
+    init() {
+        isOn = false
+    }
+    
+    func toggleButton() {
+        isOn.toggle()
+    }
 }

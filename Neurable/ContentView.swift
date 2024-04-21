@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewmodel = ContentViewModel()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
+            Text("Neurable Demo")
+            Spacer()
+            HStack {
+                Spacer()
+            Button(action: {
+                viewmodel.toggleButton()
+            }, label: {
+                viewmodel.isOn ? Image(systemName: "stop") : Image(systemName: "play")
+            })
+            Spacer()
+        }
+            
         }
         .padding()
     }
