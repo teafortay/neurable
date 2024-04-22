@@ -7,12 +7,21 @@
 
 import Foundation
 
+struct DataPoint: Identifiable {
+    var id = UUID()
+    
+    var focusLevel: Float
+    var timeInSec: Int
+}
+
 class ContentViewModel: ObservableObject {
     @Published var isOn: Bool
+    @Published var data: [DataPoint]
     var timer: Timer?
     
     init() {
         isOn = false
+        data = []
     }
     
     func toggleButton() {
@@ -24,10 +33,9 @@ class ContentViewModel: ObservableObject {
                 let dropped = connectionIssue()
                 print(sample, !dropped)
                 if sample.dataQuality > 30 && !dropped {
-                    print("passed")
-                }
+                    self.data.append(DataPoint(focusLevel: sample.focusLevel, timeInSec: sec))
+                } //TODO: handle when quality is bad or dropped
                 sec += 1
-                print("seconds: ", sec)
             }
         } else {
             timer?.invalidate()
