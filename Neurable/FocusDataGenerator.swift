@@ -21,5 +21,5 @@ func generateSample() -> Sample {
 
 func connectionIssue() -> Bool {
     let value = Int(arc4random_uniform(100))
-    return value > 20
+    return value < 20
 }
