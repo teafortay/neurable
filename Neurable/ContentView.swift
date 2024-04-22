@@ -14,15 +14,17 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Text("Neurable Demo")
-            Chart(viewmodel.data) {
+            ScrollView(.horizontal) {
+                Chart(viewmodel.data) {
                     LineMark(
                         x: .value("", $0.timeInSec),
                         y: .value("", $0.focusLevel)
                     )
                     .foregroundStyle(.bar)
-                    .lineStyle(StrokeStyle(lineWidth: 10, lineJoin: .round))
+                    .foregroundStyle(by: .value("", $0.series))
+                    .lineStyle(StrokeStyle(lineWidth: 8, lineJoin: .round))
                 }
-            
+            }
             Spacer()
             
             HStack {
