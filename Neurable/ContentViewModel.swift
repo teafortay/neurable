@@ -36,7 +36,7 @@ class ContentViewModel: ObservableObject {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 let sample = generateSample()
                 let dropped = connectionIssue()
-                print(sample, !dropped)
+                print(sample, !dropped, self.seriesNum)
                 if sample.dataQuality > 30 && !dropped {
                     self.data.append(DataPoint(series: self.seriesNum, focusLevel: sample.focusLevel, timeInSec: offSec))
                 } else {
