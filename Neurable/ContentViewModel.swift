@@ -36,6 +36,7 @@ class ContentViewModel: ObservableObject {
                 let sample = generateSample()
                 let dropped = connectionIssue()
 //                print(sample, !dropped, seriesNum)
+                
                 if sample.dataQuality > 30 && !dropped {
                     self.data.append(DataPoint(series: seriesNum, focusLevel: sample.focusLevel, timeInSec: offSec))
                 } else {
@@ -47,6 +48,7 @@ class ContentViewModel: ObservableObject {
                 dataSample.dataQuality = sample.dataQuality
                 dataSample.focusLevel = sample.focusLevel
                 self.sesh?.data.append(dataSample)
+                
                 offSec += 1
             }
         } else {
@@ -56,6 +58,7 @@ class ContentViewModel: ObservableObject {
             catch {
                 print(error.localizedDescription)
             }
+            
             self.data = []
             timer?.invalidate()
             timer = nil
