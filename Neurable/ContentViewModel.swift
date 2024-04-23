@@ -18,6 +18,7 @@ class ContentViewModel: ObservableObject {
     @Published var isOn: Bool
     @Published var data: [DataPoint]
     var timer: Timer?
+    var sesh: FocusData_Session?
     
     init() {
         isOn = false
@@ -27,14 +28,14 @@ class ContentViewModel: ObservableObject {
     func toggleButton() {
         isOn.toggle()
         if isOn {
-            var sesh = FocusData_Session()
+            sesh = FocusData_Session()
             var seriesNum = 0
             var offSec = 0
             
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 let sample = generateSample()
                 let dropped = connectionIssue()
-                print(sample, !dropped, seriesNum)
+//                print(sample, !dropped, seriesNum)
                 if sample.dataQuality > 30 && !dropped {
                     self.data.append(DataPoint(series: seriesNum, focusLevel: sample.focusLevel, timeInSec: offSec))
                 } else {
@@ -45,14 +46,20 @@ class ContentViewModel: ObservableObject {
                 dataSample.offsetSeconds = Int32(offSec)
                 dataSample.dataQuality = sample.dataQuality
                 dataSample.focusLevel = sample.focusLevel
-                sesh.data.append(dataSample)
+                self.sesh?.data.append(dataSample)
                 offSec += 1
             }
         } else {
-            // TODO: create session data and validate, handle so don't resetsecs to 0
+            do {
+                let res = try ProtobufValidator().validate(data: sesh?.serializedData() ?? Data())
+            }
+            catch {
+                print(error.localizedDescription)
+            }
             self.data = []
             timer?.invalidate()
             timer = nil
+            sesh = nil
         }
     }
 }
