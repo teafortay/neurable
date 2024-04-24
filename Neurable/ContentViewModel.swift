@@ -28,14 +28,14 @@ class ContentViewModel: ObservableObject {
     func toggleButton() {
         isOn.toggle()
         if isOn {
-            sesh = FocusData_Session()
+            self.data = []
+            self.sesh = FocusData_Session()
             var seriesNum = 0
             var offSec = 0
             
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 let sample = generateSample()
                 let dropped = connectionIssue()
-//                print(sample, !dropped, seriesNum)
                 
                 if sample.dataQuality > 30 && !dropped {
                     self.data.append(DataPoint(series: seriesNum, focusLevel: sample.focusLevel, timeInSec: offSec))
@@ -52,14 +52,21 @@ class ContentViewModel: ObservableObject {
                 offSec += 1
             }
         } else {
+            // pressed stop button
             do {
                 let res = try ProtobufValidator().validate(data: sesh?.serializedData() ?? Data())
+                switch res {
+                case .success():
+                    // I would access my networking layer here to upload the data
+                    return
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
             catch {
                 print(error.localizedDescription)
             }
             
-            self.data = []
             timer?.invalidate()
             timer = nil
             sesh = nil

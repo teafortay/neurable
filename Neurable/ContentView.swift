@@ -9,12 +9,12 @@ import SwiftUI
 import Charts
 
 struct ContentView: View {
-    @ObservedObject var viewmodel = ContentViewModel()
+    @ObservedObject private var viewmodel = ContentViewModel()
     
     var body: some View {
         VStack {
             Text("Neurable Demo")
-            HStack {
+//            HStack {
 //                ScrollView(.horizontal) {
                     Chart(viewmodel.data) {
                         LineMark(
@@ -26,8 +26,9 @@ struct ContentView: View {
                         .lineStyle(StrokeStyle(lineWidth: 6, lineJoin: .round))
                     }
 //                }
-//                .defaultScrollAnchor(.leading)
-            }
+//                .frame(width: 80)
+//                .defaultScrollAnchor(.center)
+//            }
             Spacer()
             
             HStack {
