@@ -57,3 +57,6 @@ So that I can prepare my session data to be uploaded to the backend.
 
 7. You can share the solution with us via GitHub - please invite <TODO: add GitHub handles>
 recruiting@neurable.com
+
+Taylor Shaw
+The ContentView has a simple view which displays the data. I generate the data in the ContentViewModel, using the DataGenerator. The FocusDataGenerator file has a public function which generates a random sample. I use the `toggleButton` function in the view model to generate data, send the data to the view, and validate the data using the ProtobufValidator.
